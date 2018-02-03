@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+      <title>Mon programme</title>
+      <style>
+          a {text-decoration: none; color: black;}
+
+      </style>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="container well">
+  <h3>Saisez Votre programme pour Demain</h3><br><br>
+
+  <ul>
+  <%
+   todolist.forEach(function(todo, index) {
+
+     %>
+      <li><a href="/todo/supprimer/<%= index %>">✘</a> <%= todo %>
+
+  <%
+  });
+ %>
+
+
+
+
+  </ul>
+
+
+
+
+
+  <form action="/todo/ajouter/" method="post">
+
+
+          <div class="form-group">
+     <label for="newtodo">Que dois-je faire ?</label>
+     <input type="text" class="form-control" name="newtodo" id="newtodo" autofocus >
+
+   </div>
+          <input type="submit" class="btn btn-primary"  style="height:40px;width:200px;"  value="ajouter une tache"/>
+
+
+
+  </form>
+  <br>
+     <a  href="/todo/supprimer/"  class="btn btn-primary"  style="height:40px;width:200px;">Supprimer tout les taches</a>
+</div>
+
+</body>
+</html>
